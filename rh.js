@@ -1,10 +1,12 @@
-const listaFuncionarios = document.getElementById("listaFuncionarios");
-const funcionarios = [];
+let listaFuncionarios = document.getElementById("listaFuncionarios");
+let nombreFuncionarioInput = document.getElementById("nombreFuncionario");
+let funcionarios = [];
 
 function agregarFuncionario() {
-    const nombreFuncionario = prompt("Ingresar nombre de funcionario:");
+    let nombreFuncionario = nombreFuncionarioInput.value;
     if (nombreFuncionario) {
         funcionarios.push(nombreFuncionario);
+        nombreFuncionarioInput.value = "";
         displayFuncionarios();
     }
 }
@@ -12,7 +14,7 @@ function agregarFuncionario() {
 function displayFuncionarios() {
     listaFuncionarios.innerHTML = "";
     funcionarios.forEach(function (funcionario) {
-        const li = document.createElement("li");
+        let li = document.createElement("li");
         li.textContent = funcionario;
         listaFuncionarios.appendChild(li);
     });

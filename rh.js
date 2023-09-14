@@ -1,21 +1,14 @@
-let listaFuncionarios = document.getElementById("listaFuncionarios");
-let nombreFuncionarioInput = document.getElementById("nombreFuncionario");
-let funcionarios = [];
+const listaFuncionarios = document.getElementById("listaFuncionarios");
 
-function agregarFuncionario() {
-    let nombreFuncionario = nombreFuncionarioInput.value;
-    if (nombreFuncionario) {
-        funcionarios.push(nombreFuncionario);
-        nombreFuncionarioInput.value = "";
-        displayFuncionarios();
+async function cargarUsuarios() {
+    try {
+        const response = await fetch("https://jsonplaceholder.typicode.com/users");
+        const data = await response.json();
+        const usuarios = data.map((usuario) => usuario.name);
+        listaFuncionarios.innerHTML = usuarios.map((nombre) => `<li>${nombre}</li>`).join("");
+    } catch (error) {
+        console.error("Error al cargar usuarios:", error);
     }
 }
 
-function displayFuncionarios() {
-    listaFuncionarios.innerHTML = "";
-    funcionarios.forEach(function (funcionario) {
-        let li = document.createElement("li");
-        li.textContent = funcionario;
-        listaFuncionarios.appendChild(li);
-    });
-}
+cargarUsuarios();

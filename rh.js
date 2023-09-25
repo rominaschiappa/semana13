@@ -2,7 +2,7 @@ let listaFuncionarios = document.getElementById("listaFuncionarios");
 
 async function cargarUsuarios() {
     try {
-        let response = await fetch("https://jsonplaceholder.typicode.com/users");
+        let response = await fetch("https://picsum.photos/");
         let data = await response.json();
         let funcionarios = data.map((usuario) => usuario.name);
         listaFuncionarios.innerHTML = funcionarios.map((nombre) => `<li>${nombre}</li>`).join("");

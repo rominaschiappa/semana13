@@ -1,14 +1,14 @@
-let listaFuncionarios = document.getElementById("listaFuncionarios");
+let imagenesTemasEstudio = document.getElementById("imagenesTemasEstudio");
 
-async function cargarUsuarios() {
+async function devolverImagen() {
     try {
         let response = await fetch("https://picsum.photos/");
         let data = await response.json();
-        let funcionarios = data.map((usuario) => usuario.name);
-        listaFuncionarios.innerHTML = funcionarios.map((nombre) => `<li>${nombre}</li>`).join("");
+        let imagenes = data.map((usuario) => usuario.name);
+        imagenesTemasEstudio.innerHTML = imagenes.map((nombre) => `<li>${nombre}</li>`).join("");
     } catch (error) {
-        console.error("Error al cargar funcionarios:", error);
+        console.error("Error", error);
     }
 }
 
-cargarUsuarios();
+devolverImagen();

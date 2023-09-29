@@ -1,23 +1,18 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Temas de Estudio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div>
-        <label for="tema">Tema de Estudio</label>
-        <input type="text" id="tema">
-        <button id="addBtn">Agregar tema</button>
-      </div>
-
-      <ul id="listaTemas"></ul>
-
-      
-
+    <h1>Temas de Estudio</h1>
+    <div class="input-container">
+        <input type="text" id="temaInput" placeholder="Agregar nuevo tema">
+        <button id="agregarTema">Agregar tema</button>
+    </div>
+    <ul id="listaTemas"></ul>
     <script src="rh.js"></script>
 </body>
-
 </html>
